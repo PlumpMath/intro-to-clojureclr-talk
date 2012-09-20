@@ -4,14 +4,14 @@
 (assembly-load-from ".\\deps\\npgsql.dll")
 (System.Reflection.Assembly/LoadWithPartialName "System.Data")
 
-(ns db
+(ns db.core
  (:import (Npgsql NpgsqlConnection NpgsqlCommand)
           (System.Data DataTable)))
 
 (def ^{:private true}
    conn-str "Server=127.0.0.1;Port=5432;Database=hockeydb;User Id=postgres;Password=postgres;")
 
-(def ;^{:private true} 
+(def ^{:private true} 
   dbconn (Npgsql.NpgsqlConnection. conn-str))
 
 (defn resultset-seq 
@@ -29,7 +29,12 @@
 	 )
       )))
 
-(defn run-sql [sql-str]
+(defn run-sql 
+  "Runs the provided sql and loads a DataTable object with the results.  
+  The function db.core/resultset-seq is called convert the data in the
+  DataTable over to a sequence of maps.  Each map represents a row in 
+  the DataTable."
+  [sql-str]
   (if (not= (str (.State dbconn)) "Open") (.Open dbconn))
   (let [reader (.ExecuteReader (NpgsqlCommand. sql-str dbconn))
         data-table (DataTable.)]
