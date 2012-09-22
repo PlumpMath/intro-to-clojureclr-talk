@@ -1,8 +1,16 @@
 clojure.compile core
-move *.dll ..\bin
-move *.exe ..\bin
-move *.pdb ..\bin
-copy "c:\tools\clojureclr\Debug 4.0\Clojure.dll" ..\bin
-copy "c:\tools\clojureclr\Debug 4.0\core.clj" ..\bin\clojure
-copy "c:\tools\clojureclr\Debug 4.0\Microsoft.Scripting.dll" ..\bin
-copy "c:\tools\clojureclr\Debug 4.0\Microsoft.Dynamic.dll" ..\bin
+SET CLOJURE_HOME=\tools\clojure-clr-1.3.0-Debug-4.0
+echo "%CLOJURE_HOME%"
+copy "%CLOJURE_HOME%\core.*" ..\bin
+copy "%CLOJURE_HOME%\Clojure.dll" ..\bin
+copy "%CLOJURE_HOME%\Clojure.core.clj.dll" ..\bin
+copy "%CLOJURE_HOME%\Clojure.core_clr.clj.dll" ..\bin
+copy "%CLOJURE_HOME%\Clojure.core_proxy.clj.dll" ..\bin
+copy "%CLOJURE_HOME%\Clojure.core_print.clj.dll" ..\bin
+copy "%CLOJURE_HOME%\Clojure.genclass.clj.dll" ..\bin
+copy "%CLOJURE_HOME%\Clojure.core_deftype.clj.dll" ..\bin
+copy "%CLOJURE_HOME%\Clojure.core.protocols.clj.dll" ..\bin
+copy "%CLOJURE_HOME%\Clojure.gvec.clj.dll" ..\bin
+copy "%CLOJURE_HOME%\Clojure.clr.io.clj.dll" ..\bin
+copy "%CLOJURE_HOME%\microsoft.scripting.dll" ..\bin
+copy "%CLOJURE_HOME%\microsoft.dynamic.dll" ..\bin
