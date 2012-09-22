@@ -7,7 +7,9 @@
 (ns db.queries
  (:use db.core)
  (:import (Npgsql NpgsqlConnection NpgsqlCommand)
-          (System.Data DataTable)))
+          (System.Data DataTable))
+ (:gen-class
+  :methods [ #^{:static true} [getPlayer [System.String] System.String]]))
   
 (defn ^{:private true}
   get-player-demog 
@@ -38,3 +40,9 @@
 	{:demog demog
 	 :scoring (get-scoring-stats playerid)
 	 :goalie (get-goalie-stats playerid)}))
+
+(defn -getPlayer 
+  "The function that will be called from C#. It is a wrapper for the 
+  get-player function"
+  [lastname]
+  (get-player lastname))

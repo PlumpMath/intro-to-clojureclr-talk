@@ -1,16 +1,19 @@
-(ns export.html)
+(ns export.html
+  (:gen-class
+   :methods [#^{:static true}
+	      [createhtml [System.String] System.String]]))
 
-(defn create-table-row [tag data]
+(defn- create-table-row [tag data]
   (str "\t<tr>\n\t" (apply str (map #(str "\t\t<" tag ">" % "</" tag ">\n") data)) "</tr>\n"))
 
-(defn create-shooting-stats [{:keys [year tmid pos gp g a pts pim 
+(defn- create-shooting-stats [{:keys [year tmid pos gp g a pts pim 
                                      plusminus ppg ppa shg sha gwg gtg 
                                      sog]}]
     (create-table-row "td" [year tmid pos gp g a pts pim 
         plusminus ppg ppa shg sha gwg gtg 
         sog]))
 
-(defn create-playoff-shooting-stats [{:keys [year tmid pos postgp postg posta
+(defn- create-playoff-shooting-stats [{:keys [year tmid pos postgp postg posta
                                              postpts postpim postplusminus 
                                              postppg postppa postshg postsha 
                                              postgwg postgtg postsog]}]
@@ -19,11 +22,11 @@
                                              postppg postppa postshg postsha 
                                              postgwg postgtg postsog]))
 
-(defn shooting-stats-table-header []
+(defn- shooting-stats-table-header []
  (create-table-row "th" ["Season" "Teamid" "Pos" "GP" "G" "A" "PTS" "PIMS" 
                          "+/-" "PPG" "PPA" "SHG" "SHA" "GWG" "GTG" "SOG"]))
 
-(defn show-shooting-season-stats [stats]
+(defn- show-shooting-season-stats [stats]
   (str "<h3>Regular Season</h3>\n"
        "<table class=\"table\">\n"
 	"<thead>\n"
@@ -32,7 +35,7 @@
        (apply str (map create-shooting-stats stats))
        "\n</tbody></table>"))
 
-(defn show-shooting-playoff-stats [stats]
+(defn- show-shooting-playoff-stats [stats]
   (str "<h3>Regular Season</h3>\n"
        "<table class=\"table\">\n"
 	"<thead>\n"
@@ -42,50 +45,50 @@
        "\n</tbody></table>"))
 
 
-(defn create-shooting-stats-html [stats]
+(defn- create-shooting-stats-html [stats]
     (str "<div class=\"scoring\">\n<h2>Scoring</h2>"
          (show-shooting-season-stats stats)
          "<br>"
 	 (show-shooting-playoff-stats stats)
          "</div>"))
 
-(defn create-goalie-stats [{:keys [year tmid gp min w l tol eng sho ga sa postgp postmin postw
+(defn- create-goalie-stats [{:keys [year tmid gp min w l tol eng sho ga sa postgp postmin postw
                                    postl postt posteng postsho postga postsa]}]
   (create-table-row "td" [year tmid gp min w l tol eng sho ga sa]))
 
-(defn create-goalie-playoff-stats [{:keys [year tmid postgp postmin postw
+(defn- create-goalie-playoff-stats [{:keys [year tmid postgp postmin postw
                                            postl postt posteng postsho postga postsa]}]
   (create-table-row "td" [year tmid postgp postmin postw postl postt posteng postsho postga postsa]))
 
-(defn goalie-stats-table-header []
+(defn- goalie-stats-table-header []
   (create-table-row "th" ["Season" "Teamid" "GP" "Min" "W" "L" "TOL" "ENG" "SHO" "GA" "SA"]))
 
-(defn create-goalie-stats-table [tbody]
+(defn- create-goalie-stats-table [tbody]
   (str "<table class=\"table\">"
 	(goalie-stats-table-header)
 	"<tbody>" (apply str tbody) "</tbody></table>"))
 
-(defn show-goalie-regular-season-stats [goalies]
+(defn- show-goalie-regular-season-stats [goalies]
   (str "<h3>Regular Season</h3>"
        (apply str (create-goalie-stats-table (map create-goalie-stats goalies)))))
 
-(defn show-goalie-playoff-stats [goalies]
+(defn- show-goalie-playoff-stats [goalies]
   (create-goalie-stats-table (map create-goalie-playoff-stats goalies))) 
 	
-(defn show-goalie-stats [goalies]
+(defn- show-goalie-stats [goalies]
   (str "<div class=\"goalies\">"
       (show-goalie-regular-season-stats goalies)
        "<br />"
       (show-goalie-playoff-stats goalies)))
 
-(defn show-player-demog [{:keys [firstname lastname pos]}]
+(defn- show-player-demog [{:keys [firstname lastname pos]}]
   (str "<div class=\"demog\">
 	 <div class=\"page-header tabs clearfix nm\">
 	  <h2>" (str firstname " " lastname) "
 	  <span class=\"pos\">" (str "(" pos ")") "</span></h2></div></div>"
        )) 
 
-(defn show-stats [data]
+(defn -createhtml [data]
   (let [demog (:demog data)]
 	(str (show-player-demog demog)
 	  (if (= (:pos demog) "G")
