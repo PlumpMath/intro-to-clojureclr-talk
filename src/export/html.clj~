@@ -42,7 +42,7 @@
        "\n</tbody></table>"))
 
 
-(defn show-shooting-stats [stats]
+(defn create-shooting-stats-html [stats]
     (str "<div class=\"scoring\">\n<h2>Scoring</h2>"
          (show-shooting-season-stats stats)
          "<br>"
@@ -50,78 +50,48 @@
          "</div>"))
 
 (defn create-goalie-stats [{:keys [year tmid gp min w l tol eng sho ga sa postgp postmin postw
-																							postl postt posteng postsho postga postsa]}]
-			[:tr
-        [:td year]
-			  [:td tmid]
-				[:td gp]
-				[:td min]
-				[:td w]
-				[:td l]
-				[:td tol]
-				[:td eng]
-				[:td sho]
-				[:td ga]
-				[:td sa]])
+                                   postl postt posteng postsho postga postsa]}]
+  (create-table-row "td" [year tmid gp min w l tol eng sho ga sa]))
 
 (defn create-goalie-playoff-stats [{:keys [year tmid postgp postmin postw
-																							postl postt posteng postsho postga postsa]}]
-			[:tr
-        [:td year]
-			  [:td tmid]
-				[:td postgp]
-				[:td postmin]
-				[:td postw]
-				[:td postl]
-				[:td postt]
-				[:td posteng]
-				[:td postsho]
-				[:td postga]
-				[:td postsa]])
+                                           postl postt posteng postsho postga postsa]}]
+  (create-table-row "td" [year tmid postgp postmin postw postl postt posteng postsho postga postsa]))
 
 (defn goalie-stats-table-header []
-	[:thead
-		[:th "Season"]
-		[:th "Teamid"]
-		[:th "GP"]
-		[:th "Min"]
-		[:th "W"]
-		[:th "L"]
-		[:th "TOL"]
-		[:th "ENG"]
-		[:th "SHO"]
-		[:th "GA"]
-		[:th "SA"]])
+  (create-table-row "th" ["Season" "Teamid" "GP" "Min" "W" "L" "TOL" "ENG" "SHO" "GA" "SA"]))
+
+(defn create-goalie-stats-table [tbody]
+  (str "<table class=\"table\">"
+	(goalie-stats-table-header)
+	"<tbody>" (apply str tbody) "</tbody></table>"))
 
 (defn show-goalie-regular-season-stats [goalies]
-	[:h3 "Regular Season"]
-  [:table.table
-	  (goalie-stats-table-header)
-		[:tbody (map create-goalie-stats goalies)]])
+  (str "<h3>Regular Season</h3>"
+       (apply str (create-goalie-stats-table (map create-goalie-stats goalies)))))
+		;[:tbody (map create-goalie-stats goalies)]])
 
 (defn show-goalie-playoff-stats [goalies]
-	[:h3 "Post Season"]
-  [:table.table
-		(goalie-stats-table-header)
-		[:tbody (map create-goalie-playoff-stats goalies)]])
-
+  (create-goalie-stats-table (map create-goalie-playoff-stats goalies))) 
+  ;(goalie-stats-table-header)
+	
 (defn show-goalie-stats [goalies]
-	[:div.goalies
-	    (show-goalie-regular-season-stats goalies)
-			[:br]
-			(show-goalie-playoff-stats goalies)])
+  (str "<div class=\"goalies\">"
+      (show-goalie-regular-season-stats goalies)
+       "<br />"
+      (show-goalie-playoff-stats goalies)))
 
 (defn show-player-demog [{:keys [firstname lastname pos]}]
-	[:div.demog
-	 [:div.page-header.tabs.clearfix.nm
-	  [:h2 (str firstname " " lastname)
-	  [:span.pos (str "(" pos ")") ]]]])
+  (str "<div class=\"demog\">
+	 <div class=\"page-header tabs clearfix nm\">
+	  <h2>" (str firstname " " lastname) "
+	  <span class=\"pos\">" (str "(" pos ")") "</span></h2></div></div>"
+       )) 
 
 (defn show-stats [data]
   (let [demog (:demog data)]
-		(str (show-player-demog demog)
+	(str (show-player-demog demog)
 	  (if (= (:pos demog) "G")
-      (str (show-goalie-stats (:goalie data))
-		      (show-shooting-stats (:scoring data)))
-	    (show-shooting-stats (:scoring data))))))
+              (str (show-goalie-stats (:goalie data))
+	           (show-shooting-stats (:scoring data)))
+	      (show-shooting-stats (:scoring data))))))
 	
