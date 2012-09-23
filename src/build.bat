@@ -1,11 +1,10 @@
 REM SET CLOJURE_HOME=\tools\clojure-clr-1.3.0-Debug-4.0
 SET CLOJURE_HOME=\tools\clojureclr\Debug 4.0
 SET BUILD_DIR=\code\talks\intro-to-clojureclr-talk\src
-del ..\bin\* /Q
-"%CLOJURE_HOME%"\clojure.compile core
+del ..\bin\hockey* /Q
+
+"%CLOJURE_HOME%"\clojure.compile hockey
 echo "%CLOJURE_HOME%"
-copy "%CLOJURE_HOME%\core.*" ..\bin
-copy "%CLOJURE_HOME%\core.clj.dll" ..\bin
 copy "%CLOJURE_HOME%\Clojure.dll" ..\bin
 copy "%CLOJURE_HOME%\Clojure.core.clj.dll" ..\bin
 copy "%CLOJURE_HOME%\Clojure.core_clr.clj.dll" ..\bin
@@ -19,9 +18,18 @@ copy "%CLOJURE_HOME%\Clojure.clr.io.clj.dll" ..\bin
 copy "%CLOJURE_HOME%\microsoft.scripting.dll" ..\bin
 copy "%CLOJURE_HOME%\microsoft.dynamic.dll" ..\bin
 
+REM For Clojure 1.3
+REM copy "%CLOJURE_HOME%\hockey.*" ..\bin
+REM copy "%CLOJURE_HOME%\hockey.clj.dll" ..\bin
+
 REM FOR Clojure 1.4
-copy "%CLOJURE_HOME%\clojure\core.clj" ..\bin\clojure
+copy "%CLOJURE_HOME%\clojure\hockey.clj" ..\bin\clojure
 copy "%CLOJURE_HOME%\clojure\instant.clj" ..\bin\clojure
 copy "%CLOJURE_HOME%\clojure\uuid.clj" ..\bin\clojure
-move "%BUILD_DIR%\core.exe" ..\bin
-move "%BUILD_DIR%\core.clj.dll" ..\bin
+copy "%BUILD_DIR\deps\*" ..\bin\deps
+copy "%BUILD_DIR%\hockey.clj" ..\bin
+copy "%BUILD_DIR%\db\queries.clj" ..\bin\db
+move "%BUILD_DIR%\hockey.exe" ..\bin
+move "%BUILD_DIR%\hockey.clj.dll" ..\bin
+REM move "%BUILD_DIR%\db.core.clj.dll" ..\bin
+REM move "%BUILD_DIR%\db.queries.clj.dll" ..\bin
