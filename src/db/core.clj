@@ -3,13 +3,16 @@
 (assembly-load-from ".\\deps\\mono.security.dll")
 (assembly-load-from ".\\deps\\npgsql.dll")
 (System.Reflection.Assembly/LoadWithPartialName "System.Data")
+(System.Reflection.Assembly/LoadWithPartialName "System.Configuration")
 
 (ns db.core
  (:import (Npgsql NpgsqlConnection NpgsqlCommand)
           (System.Data DataTable)))
 
 (def ^{:private true}
-   conn-str "Server=127.0.0.1;Port=5432;Database=hockeydb;User Id=postgres;Password=postgres;")
+  conn-str (.Get System.Configuration.ConfigurationManager/AppSettings "DbConnStr"))
+   ;conn-str "Server=127.0.0.1;Port=5432;Database=hockeydb;User Id=postgres;Password=postgres;")
+
 
 (def ^{:private true} 
   dbconn (Npgsql.NpgsqlConnection. conn-str))

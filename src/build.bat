@@ -29,6 +29,7 @@ copy "%CLOJURE_HOME%\clojure\instant.clj" ..\bin\clojure
 copy "%CLOJURE_HOME%\clojure\uuid.clj" ..\bin\clojure
 copy "%BUILD_DIR\deps\*" ..\bin\deps
 copy "%BUILD_DIR%\hockey.clj" ..\bin
+copy "%BUILD_DIR%\hockey.exe.config" ..\bin
 copy "%BUILD_DIR%\db\queries.clj" ..\bin\db
 move "%BUILD_DIR%\hockey.exe" ..\bin
 move "%BUILD_DIR%\hockey.clj.dll" ..\bin

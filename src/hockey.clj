@@ -1,4 +1,5 @@
 (System.Reflection.Assembly/LoadWithPartialName "System.Windows.Forms")
+(System.Reflection.Assembly/LoadWithPartialName "System.Configuration")
 
 (ns hockey
   (:import [System.Windows.Forms Button GroupBox CheckedListBox Form
