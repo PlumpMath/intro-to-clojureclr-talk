@@ -3,6 +3,9 @@ pom.xml
 /lib/
 /classes/
 /bin/
+/src/*.*.dll
+/src/*.pdb
+/src/*.exe
 *~
 *swp
 .lein-deps-sum

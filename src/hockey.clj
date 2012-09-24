@@ -14,17 +14,14 @@
 
 (defn- convert-to-object-array [{:keys [year tmid pos gp g a pts pims plusminus ppg ppa shg
                                         sha gwg gtg sog]}]
-  ;(println [year tmid pos gp g a pts pims plusminus ppg ppa shg
-  ;                                      sha gwg gtg sog])
   (into-array Object [year tmid pos gp g a pts pims plusminus ppg ppa shg
                                         sha gwg gtg sog]))
 
 (defn- add-row-to-grid [grid data]
    (.Add (.Rows grid) (convert-to-object-array data)))
 
-(defn- create-scoring-grid [form]
-  (let [ scoring-grid (DataGridView.)
-         scoring (:scoring @qry-results)]
+(defn- create-grid-and-columns []
+  (let [scoring-grid (DataGridView.)]
     (set! (.ColumnCount scoring-grid) 16)
     (set! (.Name (nth (.Columns scoring-grid) 0)) "Season")
     (set! (.Name (nth (.Columns scoring-grid) 1)) "Team")
@@ -47,14 +44,16 @@
       (.set_Name "Stats")
       (.set_Location (Point. 4 110))
       (.set_Size (Size. 975 675)))
-  
-    (println (str "Current Rows: " (.Count (.Rows scoring-grid)))) 
-    (println (.DataSource scoring-grid))
+
+    scoring-grid))
+
+(defn- create-scoring-grid [form]
+  (let [ scoring-grid (create-grid-and-columns)
+         scoring (:scoring @qry-results)]
+    
     (if (= (.Length (.Find (.Controls form) "Stats" true)) 1)
       (.Remove (.Controls form) (nth (.Find (.Controls form) "Stats" true) 0)))
             
-    ;(.DataSource scoring-grid nil)
-
     (doseq [rec scoring]
       (add-row-to-grid scoring-grid rec))
 
