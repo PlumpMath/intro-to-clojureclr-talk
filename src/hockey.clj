@@ -14,6 +14,8 @@
 
 (defn- convert-to-object-array [{:keys [year tmid pos gp g a pts pims plusminus ppg ppa shg
                                         sha gwg gtg sog]}]
+  ;(println [year tmid pos gp g a pts pims plusminus ppg ppa shg
+  ;                                      sha gwg gtg sog])
   (into-array Object [year tmid pos gp g a pts pims plusminus ppg ppa shg
                                         sha gwg gtg sog]))
 
@@ -40,12 +42,21 @@
     (set! (.Name (nth (.Columns scoring-grid) 13)) "GWG")
     (set! (.Name (nth (.Columns scoring-grid) 14)) "GTG")
     (set! (.Name (nth (.Columns scoring-grid) 15)) "SOG")
-    
+
     (doto scoring-grid 
+      (.set_Name "Stats")
       (.set_Location (Point. 4 110))
       (.set_Size (Size. 975 675)))
+  
+    (println (str "Current Rows: " (.Count (.Rows scoring-grid)))) 
+    (println (.DataSource scoring-grid))
+    (if (= (.Length (.Find (.Controls form) "Stats" true)) 1)
+      (.Remove (.Controls form) (nth (.Find (.Controls form) "Stats" true) 0)))
+            
+    ;(.DataSource scoring-grid nil)
 
-    (map #(add-row-to-grid scoring-grid %) scoring)
+    (doseq [rec scoring]
+      (add-row-to-grid scoring-grid rec))
 
     (.Add (.Controls form) scoring-grid)))
 
