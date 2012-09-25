@@ -1,4 +1,5 @@
 (ns export.html
+  (:require [db.queries :as queries])
   (:gen-class
    :methods [#^{:static true}
 	      [CreateHtml [System.String] System.String]]))
@@ -88,8 +89,9 @@
 	  <span class=\"pos\">" (str "(" pos ")") "</span></h2></div></div>"
        )) 
 
-(defn -CreateHtml [data]
-  (let [demog (:demog data)]
+(defn -CreateHtml [lname]
+  (let [data (queries/get-player lname)
+        demog (:demog data)]
 	(str (show-player-demog demog)
 	  (if (= (:pos demog) "G")
               (show-goalie-stats (:goalie data)))

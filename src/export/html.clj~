@@ -1,8 +1,8 @@
 (ns export.html
-  (:require [db.queries :as q])
+  (:require [db.queries :as queries])
   (:gen-class
    :methods [#^{:static true}
-	      [CreateHtml [System.Object] System.String]]))
+	      [CreateHtml [System.String] System.String]]))
 
 (defn- create-table-row [tag data]
   (str "\t<tr>\n\t" (apply str (map #(str "\t\t<" tag ">" % "</" tag ">\n") data)) "</tr>\n"))
@@ -90,7 +90,7 @@
        )) 
 
 (defn -CreateHtml [lname]
-  (let [data (q/get-player lname)
+  (let [data (queries/get-player lname)
         demog (:demog data)]
 	(str (show-player-demog demog)
 	  (if (= (:pos demog) "G")
