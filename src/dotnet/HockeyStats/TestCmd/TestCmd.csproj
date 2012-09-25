@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8464FE20-D26D-49FB-A693-AD064DABBBF3}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TestCmd</RootNamespace>
+    <AssemblyName>TestCmd</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Clojure, Version=1.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\bin\Clojure.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.clr.io.clj">
+      <HintPath>..\..\..\..\bin\clojure.clr.io.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.core.clj">
+      <HintPath>..\..\..\..\bin\clojure.core.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.core.protocols.clj">
+      <HintPath>..\..\..\..\bin\clojure.core.protocols.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.core_clr.clj">
+      <HintPath>..\..\..\..\bin\clojure.core_clr.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.core_deftype.clj">
+      <HintPath>..\..\..\..\bin\clojure.core_deftype.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.core_print.clj">
+      <HintPath>..\..\..\..\bin\clojure.core_print.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.core_proxy.clj">
+      <HintPath>..\..\..\..\bin\clojure.core_proxy.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.genclass.clj">
+      <HintPath>..\..\..\..\bin\clojure.genclass.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.gvec.clj">
+      <HintPath>..\..\..\..\bin\clojure.gvec.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="export.html.clj">
+      <HintPath>..\..\..\..\bin\export.html.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HockeyStats\HockeyStats.csproj">
+      <Project>{6AF072C6-0C1F-4F9C-8A6C-34EB74C49531}</Project>
+      <Name>HockeyStats</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
