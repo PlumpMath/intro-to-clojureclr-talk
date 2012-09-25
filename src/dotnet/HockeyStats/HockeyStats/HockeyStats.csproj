@@ -61,10 +61,13 @@
     <Reference Include="clojure.gvec.clj">
       <HintPath>..\..\..\..\bin\clojure.gvec.clj.dll</HintPath>
     </Reference>
-    <Reference Include="export.html">
+    <Reference Include="export.html, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <ExecutableExtension>.exe</ExecutableExtension>
       <HintPath>..\..\..\..\bin\export.html.exe</HintPath>
     </Reference>
-    <Reference Include="export.html.clj">
+    <Reference Include="export.html.clj, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\bin\export.html.clj.dll</HintPath>
     </Reference>
     <Reference Include="Npgsql">

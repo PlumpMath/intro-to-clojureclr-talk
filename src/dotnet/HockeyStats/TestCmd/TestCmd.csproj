@@ -65,6 +65,14 @@
     <Reference Include="clojure.gvec.clj">
       <HintPath>..\..\..\..\bin\clojure.gvec.clj.dll</HintPath>
     </Reference>
+    <Reference Include="export.html, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <HintPath>..\..\..\..\bin\export.html.exe</HintPath>
+    </Reference>
+    <Reference Include="export.html.clj">
+      <HintPath>..\..\..\..\bin\export.html.clj.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Security">
       <HintPath>..\..\..\deps\Mono.Security.dll</HintPath>
     </Reference>
