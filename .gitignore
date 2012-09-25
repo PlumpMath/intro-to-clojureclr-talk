@@ -6,6 +6,14 @@ pom.xml
 /src/*.*.dll
 /src/*.pdb
 /src/*.exe
+/src/*/*.exe
+/src/*/*.pdb
+/src/*/*.dll
+/src/dotnet/*.exe
+/src/dotnet/HockeyStats/*/bin/*
+/src/dotnet/HockeyStats/*/obj/*
+/src/dotnet/HockeyStats/*/obj/*
 *~
 *swp
 .lein-deps-sum
+stats.html

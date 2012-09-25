@@ -31,6 +31,42 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Clojure">
+      <HintPath>..\..\..\..\bin\Clojure.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.clr.io.clj">
+      <HintPath>..\..\..\..\bin\clojure.clr.io.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.core.clj">
+      <HintPath>..\..\..\..\bin\clojure.core.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.core.protocols.clj">
+      <HintPath>..\..\..\..\bin\clojure.core.protocols.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.core_clr.clj">
+      <HintPath>..\..\..\..\bin\clojure.core_clr.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.core_deftype.clj">
+      <HintPath>..\..\..\..\bin\clojure.core_deftype.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.core_print.clj">
+      <HintPath>..\..\..\..\bin\clojure.core_print.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.core_proxy.clj">
+      <HintPath>..\..\..\..\bin\clojure.core_proxy.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.genclass.clj">
+      <HintPath>..\..\..\..\bin\clojure.genclass.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="clojure.gvec.clj">
+      <HintPath>..\..\..\..\bin\clojure.gvec.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="export.html">
+      <HintPath>..\..\..\..\bin\export.html.exe</HintPath>
+    </Reference>
+    <Reference Include="export.html.clj">
+      <HintPath>..\..\..\..\bin\export.html.clj.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -40,11 +76,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="ClojureClr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

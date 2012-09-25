@@ -1,7 +1,7 @@
 (ns export.html
   (:gen-class
    :methods [#^{:static true}
-	      [createhtml [System.String] System.String]]))
+	      [CreateHtml [System.String] System.String]]))
 
 (defn- create-table-row [tag data]
   (str "\t<tr>\n\t" (apply str (map #(str "\t\t<" tag ">" % "</" tag ">\n") data)) "</tr>\n"))
@@ -88,11 +88,10 @@
 	  <span class=\"pos\">" (str "(" pos ")") "</span></h2></div></div>"
        )) 
 
-(defn -createhtml [data]
+(defn -CreateHtml [data]
   (let [demog (:demog data)]
 	(str (show-player-demog demog)
 	  (if (= (:pos demog) "G")
-              (str (show-goalie-stats (:goalie data))
-	           (show-shooting-stats (:scoring data)))
-	      (show-shooting-stats (:scoring data))))))
+              (show-goalie-stats (:goalie data)))
+	      (create-shooting-stats-html (:scoring data)))))
 	

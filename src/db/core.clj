@@ -11,8 +11,8 @@
 
 (def ^{:private true}
   conn-str (.Get System.Configuration.ConfigurationManager/AppSettings "DbConnStr"))
-   ;conn-str "Server=127.0.0.1;Port=5432;Database=hockeydb;User Id=postgres;Password=postgres;")
 
+(println conn-str)
 
 (def ^{:private true} 
   dbconn (Npgsql.NpgsqlConnection. conn-str))
