@@ -1,6 +1,6 @@
 echo on
 REM SET CLOJURE_HOME=\tools\clojure-clr-1.3.0-Debug-4.0
-SET CLOJURE_HOME=\tools\clojureclr\Debug4.0
+SET CLOJURE_HOME=\tools\clojureclr\Debug 4.0
 SET BUILD_DIR=\code\talks\intro-to-clojureclr-talk\src
 del ..\bin\hockey* /Q
 

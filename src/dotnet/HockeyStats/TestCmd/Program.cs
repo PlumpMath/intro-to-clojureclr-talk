@@ -9,7 +9,8 @@ namespace TestCmd
     {
         static void Main(string[] args)
         {
-            HockeyStats.ClojureClr.GetHtml();
+            Console.WriteLine(HockeyStats.ClojureClr.GenerateHtml("Ricci"));
+            //HockeyStats.ClojureClr.GetHtml();
         }
     }
 }

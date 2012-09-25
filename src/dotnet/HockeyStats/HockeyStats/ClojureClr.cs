@@ -7,9 +7,9 @@ namespace HockeyStats
 {
     public static class ClojureClr
     {
-        public static void GetHtml()
+        public static string GenerateHtml(string lname)
         {
-            Console.WriteLine(export.html.CreateHtml("Ricci"));
+            return export.html.CreateHtml(lname);
         }
     }
 }

@@ -65,8 +65,25 @@
     <Reference Include="clojure.gvec.clj">
       <HintPath>..\..\..\..\bin\clojure.gvec.clj.dll</HintPath>
     </Reference>
+    <Reference Include="db.queries, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <ExecutableExtension>.exe</ExecutableExtension>
+      <HintPath>..\..\..\..\bin\db.queries.exe</HintPath>
+    </Reference>
+    <Reference Include="db.queries.clj">
+      <HintPath>..\..\..\..\bin\db.queries.clj.dll</HintPath>
+    </Reference>
     <Reference Include="export.html.clj">
       <HintPath>..\..\..\..\bin\export.html.clj.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Security">
+      <HintPath>..\..\..\deps\Mono.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\..\deps\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Npgsql">
+      <HintPath>..\..\..\deps\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

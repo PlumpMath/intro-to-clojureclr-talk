@@ -8,6 +8,7 @@
   (:import [System.Drawing Size Font FontStyle Point GraphicsUnit])
   (:import [System.ComponentModel BackgroundWorker DoWorkEventHandler
             RunWorkerCompletedEventHandler RunWorkerCompletedEventArgs])
+  ;(:require [db.core :as core])
   (:require [db.queries :as query])
   (:gen-class))
 
