@@ -9,10 +9,10 @@ pom.xml
 /src/*/*.exe
 /src/*/*.pdb
 /src/*/*.dll
-/src/dotnet/*.exe
-/src/dotnet/HockeyStats/*/bin/*
-/src/dotnet/HockeyStats/*/obj/*
-/src/dotnet/HockeyStats/*/obj/*
+/dotnet_src/*.exe
+/dotnet_src/HockeyStats/*/bin/*
+/dotnet_src/HockeyStats/*/obj/*
+/dotnet_src/HockeyStats/*/obj/*
 *~
 *swp
 .lein-deps-sum

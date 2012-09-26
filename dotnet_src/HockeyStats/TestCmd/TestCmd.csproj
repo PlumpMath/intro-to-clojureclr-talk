@@ -73,6 +73,12 @@
     <Reference Include="export.html.clj">
       <HintPath>..\..\..\..\bin\export.html.clj.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Dynamic">
+      <HintPath>..\..\..\bin\Microsoft.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting">
+      <HintPath>..\..\..\bin\Microsoft.Scripting.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Security">
       <HintPath>..\..\..\deps\Mono.Security.dll</HintPath>
     </Reference>
