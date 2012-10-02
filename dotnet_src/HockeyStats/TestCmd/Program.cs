@@ -9,8 +9,17 @@ namespace TestCmd
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(HockeyStats.ClojureClr.GenerateHtml("Ricci"));
-            //HockeyStats.ClojureClr.GetHtml();
+            var fileName = "ricci.html";
+
+            // Call in the export.html/-CreateHtml function
+            // get the HTML string
+            var content = export.html.CreateHtml("Ricci");
+
+            // writ the results to an html file
+            System.IO.File.WriteAllText(fileName, content);
+
+            // Display the created page.
+            System.Diagnostics.Process.Start(fileName);
         }
     }
 }

@@ -28,5 +28,5 @@ copy "%BUILD_DIR\deps\*" ..\bin\deps
 copy "%BUILD_DIR%\db\queries.clj" ..\bin\db
 copy "%BUILD_DIR%\hockey.clj" ..\bin
 move "%BUILD_DIR%\hockey.exe" ..\bin
-move "%BUILD_DIR%\export.html.exe" ..\bin
-move "%BUILD_DIR%\export.html.*.*" ..\bin
+move "%BUILD_DIR%\export\export.html.exe" ..\bin
+move "%BUILD_DIR%\export\export.html.*.*" ..\bin
