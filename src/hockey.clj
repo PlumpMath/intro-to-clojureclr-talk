@@ -8,7 +8,6 @@
   (:import [System.Drawing Size Font FontStyle Point GraphicsUnit])
   (:import [System.ComponentModel BackgroundWorker DoWorkEventHandler
             RunWorkerCompletedEventHandler RunWorkerCompletedEventArgs])
-  ;(:require [db.core :as core])
   (:require [db.queries :as query])
   (:gen-class))
 
@@ -56,7 +55,8 @@
     (if (= (.Length (.Find (.Controls form) "Stats" true)) 1)
       (.Remove (.Controls form) (nth (.Find (.Controls form) "Stats" true) 0)))
             
-    (doseq [rec scoring]
+    ;(doseq [rec scoring]
+    (doseq [rec (:scoring @qry-results)]
       (add-row-to-grid scoring-grid rec))
 
     (.Add (.Controls form) scoring-grid)))
@@ -118,7 +118,7 @@
     (.add_DoWork background-worker 
       (gen-delegate DoWorkEventHandler [sender e]
         (let [name (.Argument e)]
-              (swap! qry-results merge (query/get-player name))))) 
+              (reset! qry-results (query/get-player name))))) 
 
     (.add_RunWorkerCompleted background-worker
       (gen-delegate RunWorkerCompletedEventHandler [sender e]
