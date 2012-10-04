@@ -1,4 +1,6 @@
-(ns repl)
+(System.Reflection.Assembly/LoadWithPartialName "System.Windows.Forms")
+(ns repl
+  (:import [System.Windows.Forms MessageBox]))
 
 
 (defn call-static-method 
