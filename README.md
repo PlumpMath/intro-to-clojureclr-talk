@@ -1,3 +1,5 @@
+# WORKING ON FORMATTING OF THIS - WILL BE FIXED SOON
+
 Intro to Clojure-clr - Clojure for .NET Developers
 ====================================================
 
@@ -68,7 +70,6 @@ A PDF version and a PowerPoint version of the slides in the slides directory
 ;; Calls the MyClass SayHi method passing the string "Richmond"
 (.SayHi obj "Richmond")
 
-# WORKING ON FORMATTING OF THIS - WILL BE FIXED SOON
 ;; ------------------------------
 
 ;; .NET Assemblies
