@@ -24,6 +24,7 @@ A PDF version and a PowerPoint version of the slides in the slides directory
 ;; Defines a 'variable' that is scoped to the user namespace since it was defined in the REPL
 (def msg "Clojure is Cool!")
 
+
 ;; Defines a function in the user namespace with one parameter and writes it to stdout
 (defn echo [my-str]
   (println "You said:" my-str))
