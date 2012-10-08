@@ -16,25 +16,31 @@ Learn how to install Clojure-clr, use .NET libraries, connect to a database and 
 A PDF version and a PowerPoint version of the slides in the slides directory
 
 ## REPL Work During the Talk - $.05 Clojure Tour
-### The Basics
-how to create a 'variable', function and call a .NET static method
+### The Basics - creating 'variables', functions and calling .NET static methods
 
 - Defines a variable that is scoped to the user namespace since it was defined in the REPL
-
-(def msg "Clojure is Cool!")
-
+  <br/>
+  <code>
+	(def msg "Clojure is Cool!")
+  </code>
 
 - Defines a function in the user namespace with one parameter and writes it to stdout
+ <br/>
  <code>
 	(defn echo [ my-str ] 
       (println "You said:" my-str))
  </code>
 
 - Calls the .NET static method WriteLine
-- (System.Console/WriteLine "I just called a .NET method!")
+<br/>
+<code>
+ (System.Console/WriteLine "I just called a .NET method!")
+</code>
 
 ;; ------------------------------
+
 ;; Sequences
+
 ;; ------------------------------
 
 ;; The range function will create a lazy sequence 0 to 9
