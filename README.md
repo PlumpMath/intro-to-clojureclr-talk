@@ -25,13 +25,10 @@ how to create a 'variable', function and call a .NET static method
 
 
 - Defines a function in the user namespace with one parameter and writes it to stdout
+- (defn echo [my-str] (println "You said:" my-str))
 
-(defn echo [my-str]
-
-  (println "You said:" my-str))
-
-;; Calls the .NET static method WriteLine
-(System.Console/WriteLine "I just called a .NET method!")
+- Calls the .NET static method WriteLine
+- (System.Console/WriteLine "I just called a .NET method!")
 
 ;; ------------------------------
 ;; Sequences
