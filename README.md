@@ -38,60 +38,86 @@ A PDF version and a PowerPoint version of the slides in the slides directory
 </code>
 
 ### Sequences - creating, processing and taking a subset
-
+- Creates a new sequence of the numbers form 0 to 9
 <br/>
 <code>
-;; Creates a new sequence of the numbers form 0 to 9
 (def numbers (range 10))
- 
-;; Prints out each number in the sequence on its own line.  
+</code> 
+
+- Prints out each number in the sequence on its own line.  
+<br>
+<code>
 (map println numbers)
+</code>
 
-;; Sums up the numbers in the sequence.
-(apply + numbers)
+- Sums up the numbers in the sequence.
+<br/>
+<code>
+	(apply + numbers)
+</code>
 
-;; Returns a lazy sequence of the even numbers in numbers.
-(filter even? numbers)
+- Returns a lazy sequence of the even numbers in numbers.
+<br>
+<code>
+	(filter even? numbers)
 </code>
 
 ### .NET - My Own Assembly - set/get value from a property, calling a method and passing parameters
 
 [The C# Code for the class I'm working with below ](https://github.com/rippinrobr/intro-to-clojureclr-talk/blob/master/dotnet_src/HockeyStats/ReplExample/Class1.cs)
 
-<br/>
+- Loads my ReplExample assembly into the name space
+<br>
 <code>
-;; Loads my ReplExample assembly into the name space
 (assembly-load-from "deps\\ReplExample.dll")
+</code>
 
-;; Instantiates an MyClass object 
-;; I could also do the samething this way (def obj (ReplExample.MyClass.))
-(def obj (new ReplExample.MyClass)) 
+- Instantiates an MyClass object I could also do the samething this way: (def obj (ReplExample.MyClass.))
+<br>
+<code>
+	(def obj (new ReplExample.MyClass)) 
+</code>
 
-;; Sets the MyVal property in the obj to 10
-(set! (.MyVal obj) 10)
+- Sets the MyVal property in the obj to 10
+<br>
+<code>
+	(set! (.MyVal obj) 10)
+</code>
 
-;; Prints out the number 10
-(prinltn (.MyVal obj))
+- Prints out the number 10
+<br>
+<code>
+	(prinltn (.MyVal obj))
+</code>
 
-;; Calls the MyClass method GetTime
-(.GetTime obj)
+- Calls the MyClass method GetTime
+<br>
+<code>
+	(.GetTime obj)
+</code>
 
-;; Calls the MyClass SayHi method passing the string "Richmond"
-(.SayHi obj "Richmond")
+- Calls the MyClass SayHi method passing the string "Richmond"
+<br>
+<code>
+	(.SayHi obj "Richmond")
 </code>
 
 ### .NET Assemblies - interacting with .NET System.Windows.Forms.MessageBox
-<br/>
+- Brings in the System.Windows.Forms assembly into the namespace
 <code>
-;; Brings in the System.Windows.Forms assembly into the namespace
 (System.Reflection.Assembly/LoadWithPartialName "System.Windows.Forms")
+</code>
 
-;; Brings the System.Windows.Forms into the namespaces and allows me to
-;; use MessageBox instead of the entire namespace
-(import [System.Windows.Forms MessageBox])
+- Brings the System.Windows.Forms into the namespaces and allows me to use MessageBox instead of the entire namespace
+<br>
+<code>
+	(import [System.Windows.Forms MessageBox])
+</code>
 
-;; Brings up a MessageBox with the string "This isn't Durham!"
-(MessageBox/Show "This Isn't Durham!" "ClojureCLR Dialog")
+- Brings up a MessageBox with the string "This isn't Durham!"
+<br>
+<code>
+	(MessageBox/Show "This Isn't Durham!" "ClojureCLR Dialog")
 </code>
 
 ## Questions? Resources?
