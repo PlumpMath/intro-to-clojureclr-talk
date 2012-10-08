@@ -16,13 +16,11 @@ Learn how to install Clojure-clr, use .NET libraries, connect to a database and 
 A PDF version and a PowerPoint version of the slides in the slides directory
 
 ## REPL Work During the Talk - $.05 Clojure Tour
-- The Basics, how to create a 'variable', function and call a .NET static method
+### The Basics
+how to create a 'variable', function and call a .NET static method
 
-;; -----------------------------
-;; Basics
-;; -----------------------------
-;; Defines a 'variable' that is scoped to the user namespace since it was defined in the REPL
-(def msg "Clojure is Cool!")
+- Defines a variable that is scoped to the user namespace since it was defined in the REPL
+--(def msg "Clojure is Cool!")
 
 
 ;; Defines a function in the user namespace with one parameter and writes it to stdout
