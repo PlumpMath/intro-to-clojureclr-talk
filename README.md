@@ -1,5 +1,3 @@
-# WORKING ON FORMATTING OF THIS - WILL BE FIXED SOON
-
 Intro to Clojure-clr - Clojure for .NET Developers
 ====================================================
 
@@ -36,6 +34,7 @@ A PDF version and a PowerPoint version of the slides in the slides directory
 <code>
  (System.Console/WriteLine "I just called a .NET method!")
 </code>
+
 
 ### Sequences - creating, processing and taking a subset
 - Creates a new sequence of the numbers form 0 to 9
