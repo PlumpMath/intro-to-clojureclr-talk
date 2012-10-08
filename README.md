@@ -37,17 +37,14 @@ A PDF version and a PowerPoint version of the slides in the slides directory
  (System.Console/WriteLine "I just called a .NET method!")
 </code>
 
-;; ------------------------------
+### Sequences - creating, processing and taking a subset
 
-;; Sequences
-
-;; ------------------------------
-
-;; The range function will create a lazy sequence 0 to 9
-
+<br/>
+<code>
+;; Creates a new sequence of the numbers form 0 to 9
 (def numbers (range 10))
  
-;; Prints out each number in the sequence.  
+;; Prints out each number in the sequence on its own line.  
 (map println numbers)
 
 ;; Sums up the numbers in the sequence.
@@ -55,12 +52,14 @@ A PDF version and a PowerPoint version of the slides in the slides directory
 
 ;; Returns a lazy sequence of the even numbers in numbers.
 (filter even? numbers)
+</code>
 
-;; -----------------------------------------------
-;; .NET - My Own Assembly
-;; -----------------------------------------------
+### .NET - My Own Assembly - set/get value from a property, calling a method and passing parameters
+
 [The C# Code for the class I'm working with below ](https://github.com/rippinrobr/intro-to-clojureclr-talk/blob/master/dotnet_src/HockeyStats/ReplExample/Class1.cs)
 
+<br/>
+<code>
 ;; Loads my ReplExample assembly into the name space
 (assembly-load-from "deps\\ReplExample.dll")
 
@@ -79,11 +78,11 @@ A PDF version and a PowerPoint version of the slides in the slides directory
 
 ;; Calls the MyClass SayHi method passing the string "Richmond"
 (.SayHi obj "Richmond")
+</code>
 
-;; ------------------------------
-
-;; .NET Assemblies
-;; ------------------------------
+### .NET Assemblies - interacting with .NET System.Windows.Forms.MessageBox
+<br/>
+<code>
 ;; Brings in the System.Windows.Forms assembly into the namespace
 (System.Reflection.Assembly/LoadWithPartialName "System.Windows.Forms")
 
@@ -92,11 +91,11 @@ A PDF version and a PowerPoint version of the slides in the slides directory
 (import [System.Windows.Forms MessageBox])
 
 ;; Brings up a MessageBox with the string "This isn't Durham!"
-(MessageBox/Show "This Isn't Durham!" "ClojureCLR Dialog"))
+(MessageBox/Show "This Isn't Durham!" "ClojureCLR Dialog")
+</code>
 
-;; ------------------------------
-;; Questions? Resources?
-;; ------------------------------
-If you have any questions ping me on twitter @rippinrobr
+## Questions? Resources?
+
+If you have any questions hit me up on twitter -> @rippinrobr
 [My blog has a few posts on Clojure-clr](http://www.myclojureadventure.com/search/label/clojureclr)
 
